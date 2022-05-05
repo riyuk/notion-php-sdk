@@ -54,6 +54,10 @@ class Page extends ObjectBase
             $data['parent'] = $this->parent;
         }
 
+        if (isset($this->icon) && is_string($this->icon)) {
+            $data['icon'] = (object)['type' => 'emoji', 'emoji' => $this->icon];
+        }
+
         foreach ($this->properties as $property) {
             $value = $property->get();
 
